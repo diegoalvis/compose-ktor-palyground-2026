@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.plyground">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".ProductApplication"
+        android:name="products.plyground.ProductApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,9 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Plyground">
         <activity
-            android:name=".MainActivity"
+            android:name="simple_tracker.ScoreActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_score"
+            android:theme="@style/Theme.Plyground" >
+        </activity>
+        <activity
+            android:name="products.plyground.MainActivity"
+            android:exported="true"
             android:theme="@style/Theme.Plyground">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

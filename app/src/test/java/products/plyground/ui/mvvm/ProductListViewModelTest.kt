@@ -1,5 +1,7 @@
-package com.example.plyground.ui.mvvm
+package products.plyground.ui.mvvm
 
+import products.plyground.domain.model.Product
+import products.plyground.domain.repository.ProductRepository
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
@@ -7,17 +9,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.test.*
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
-import products.plyground.domain.model.Product
-import products.plyground.domain.repository.ProductRepository
-import products.plyground.ui.mvvm.ProductListViewModel
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class ProductListViewModelTest {
