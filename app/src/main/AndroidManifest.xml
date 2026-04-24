@@ -24,6 +24,16 @@
             android:name="products.plyground.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Plyground">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name="product_detail_v2.MyActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Plyground">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

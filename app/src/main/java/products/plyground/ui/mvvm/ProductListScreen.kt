@@ -15,13 +15,14 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
+import product_detail_v2.Routes
 import products.plyground.domain.model.Product
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProductListScreen(
     viewModel: ProductListViewModel,
-    onProductClick: (String) -> Unit,
+    onProductClick: (Routes) -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -57,7 +58,7 @@ fun ProductListScreen(
             } else {
                 ProductList(
                     uiState = uiState,
-                    onProductClick = onProductClick,
+                    onProductClick = { onProductClick(Routes.ProductDetail(it)) },
                     onLoadProductsClick = viewModel::refreshProducts,
                     onFavoriteToggle = viewModel::onFavoriteToggle,
                     onSelectedToggle = viewModel::onSelectedToggle
@@ -106,7 +107,10 @@ private fun ProductList(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            items(items = products, key = { it.id }) { product ->
+            items(
+                items = products,
+                key = { it.id },
+                contentType = { it.javaClass.name } ) { product ->
                 ProductCard(
                     product,
                     isSelected = product.id in selectedProductIds,
